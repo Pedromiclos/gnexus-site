@@ -38,10 +38,12 @@
       font-size: 36px;
       font-weight: 900;
       letter-spacing: -1px;
+      animation: entradaLogo 1s ease;
     }
 
     .logo span {
       color: #2563eb;
+      animation: brilhoLogo 2s infinite alternate;
     }
 
     nav a {
@@ -51,10 +53,26 @@
       font-weight: bold;
       font-size: 15px;
       transition: 0.3s;
+      position: relative;
     }
 
     nav a:hover {
       color: #2563eb;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #2563eb;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     .hero {
@@ -63,6 +81,7 @@
       text-align: center;
       color: white;
       background: linear-gradient(135deg, #020617, #1e3a8a, #2563eb);
+      background-size: 140% 140%;
       overflow: hidden;
     }
 
@@ -105,6 +124,7 @@
       border-radius: 30px;
       font-weight: bold;
       margin-bottom: 24px;
+      animation: subirDescer 2.5s infinite alternate ease-in-out;
     }
 
     .hero h1 {
@@ -113,6 +133,11 @@
       margin: 0 auto 25px;
       line-height: 1.08;
       letter-spacing: -1.5px;
+      background: linear-gradient(90deg, #ffffff, #60a5fa, #ffffff);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: brilhoTexto 4s linear infinite;
     }
 
     .hero p {
@@ -141,10 +166,30 @@
       letter-spacing: 0.4px;
       transition: 0.3s;
       box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+      position: relative;
+      overflow: hidden;
     }
 
     .botao:hover {
       transform: translateY(-5px) scale(1.03);
+    }
+
+    .botao::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      background: rgba(37,99,235,0.25);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: 0.6s;
+    }
+
+    .botao:hover::after {
+      width: 320px;
+      height: 320px;
     }
 
     .botao-secundario {
@@ -218,11 +263,11 @@
       border-radius: 22px;
       border: 1px solid #e5e7eb;
       box-shadow: 0 12px 30px rgba(15,23,42,0.07);
-      transition: 0.3s, opacity 0.8s, transform 0.8s;
+      cursor: pointer;
+      transform-style: preserve-3d;
     }
 
     .card:hover {
-      transform: translateY(-10px) scale(1.02);
       box-shadow: 0 18px 45px rgba(37,99,235,0.18);
       border-color: #bfdbfe;
     }
@@ -230,6 +275,11 @@
     .icone {
       font-size: 38px;
       margin-bottom: 16px;
+      transition: 0.3s;
+    }
+
+    .card:hover .icone {
+      transform: scale(1.2) rotate(8deg);
     }
 
     .card h3 {
@@ -265,10 +315,6 @@
     .passo h3 {
       margin: 14px 0;
       font-size: 22px;
-    }
-
-    .depoimento {
-      font-style: italic;
     }
 
     .cta {
@@ -349,6 +395,39 @@
       height: 32px;
     }
 
+    .voltar-topo {
+      position: fixed;
+      left: 22px;
+      bottom: 22px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #2563eb;
+      color: white;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      transition: 0.3s;
+    }
+
+    .voltar-topo:hover {
+      transform: translateY(-5px);
+      background: #1d4ed8;
+    }
+
+    @keyframes entradaLogo {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes brilhoLogo {
+      from { text-shadow: 0 0 5px rgba(37,99,235,0.4); }
+      to { text-shadow: 0 0 18px rgba(37,99,235,0.9); }
+    }
+
     @keyframes aparecer {
       from { opacity: 0; transform: translateY(35px); }
       to { opacity: 1; transform: translateY(0); }
@@ -357,6 +436,16 @@
     @keyframes flutuar {
       from { transform: translateY(0); }
       to { transform: translateY(35px); }
+    }
+
+    @keyframes subirDescer {
+      from { transform: translateY(0); }
+      to { transform: translateY(-8px); }
+    }
+
+    @keyframes brilhoTexto {
+      0% { background-position: 0%; }
+      100% { background-position: 200%; }
     }
 
     @keyframes pulsar {
@@ -557,31 +646,6 @@
     </div>
   </section>
 
-  <section class="cinza">
-    <h2 class="titulo">Depoimentos</h2>
-    <p class="subtitulo">O que nossos clientes podem dizer sobre a experiência com a GNexus.</p>
-
-    <div class="cards">
-      <div class="card animar depoimento">
-        <p>"A GNexus deixou nossa empresa com uma presença digital muito mais profissional."</p>
-        <br>
-        <h3>Cliente GNexus</h3>
-      </div>
-
-      <div class="card animar depoimento">
-        <p>"O atendimento foi direto, claro e ajudou nossa marca a se apresentar melhor."</p>
-        <br>
-        <h3>Cliente GNexus</h3>
-      </div>
-
-      <div class="card animar depoimento">
-        <p>"Agora temos uma página bonita, organizada e pronta para receber clientes."</p>
-        <br>
-        <h3>Cliente GNexus</h3>
-      </div>
-    </div>
-  </section>
-
   <section id="contato" class="cta">
     <h2>Quer profissionalizar sua presença digital?</h2>
 
@@ -612,6 +676,8 @@
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
   </a>
 
+  <button class="voltar-topo" id="voltarTopo">↑</button>
+
   <script>
     const elementos = document.querySelectorAll('.animar');
 
@@ -628,6 +694,49 @@
 
     window.addEventListener('scroll', animarAoRolar);
     window.addEventListener('load', animarAoRolar);
+
+    const botaoTopo = document.getElementById('voltarTopo');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        botaoTopo.style.display = 'block';
+      } else {
+        botaoTopo.style.display = 'none';
+      }
+    });
+
+    botaoTopo.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      const x = (window.innerWidth - e.pageX * 2) / 100;
+      const y = (window.innerHeight - e.pageY * 2) / 100;
+
+      document.querySelector('.hero').style.backgroundPosition = `${x}px ${y}px`;
+    });
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateX = (y / rect.height - 0.5) * 10;
+        const rotateY = (x / rect.width - 0.5) * -10;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+        card.style.borderColor = '#2563eb';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+        card.style.borderColor = '#e5e7eb';
+      });
+    });
   </script>
 
 </body>
