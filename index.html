@@ -1,245 +1,744 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GNexus | Marketing Digital</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GNexus | Marketing Digital</title>
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-body{
-  font-family:Arial,sans-serif;
-  background:#fff;
-  color:#111827;
-  overflow-x:hidden;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: #111827;
+      overflow-x: hidden;
+    }
 
-/* HEADER */
-header{
-  padding:18px 8%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid #e5e7eb;
-  position:sticky;
-  top:0;
-  z-index:100;
-}
+    header {
+      width: 100%;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-/* LOGO */
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:32px;
-  font-weight:900;
-}
+    .logo {
+      font-size: 36px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      animation: entradaLogo 1s ease;
+    }
 
-.logo img{
-  width:50px;
-  height:50px;
-  object-fit:contain;
-  filter: drop-shadow(0 0 6px rgba(37,99,235,0.5));
-}
+    .logo span {
+      color: #2563eb;
+      animation: brilhoLogo 2s infinite alternate;
+    }
 
-.logo span{
-  color:#2563eb;
-}
+    nav a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: bold;
+      font-size: 15px;
+      transition: 0.3s;
+      position: relative;
+    }
 
-/* MENU */
-nav a{
-  margin-left:24px;
-  text-decoration:none;
-  color:#374151;
-  font-weight:bold;
-  position:relative;
-}
+    nav a:hover {
+      color: #2563eb;
+    }
 
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0;
-  height:2px;
-  background:#2563eb;
-  transition:.3s;
-}
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #2563eb;
+      transition: 0.3s;
+    }
 
-nav a:hover::after{
-  width:100%;
-}
+    nav a:hover::after {
+      width: 100%;
+    }
 
-/* HERO */
-.hero{
-  padding:130px 8%;
-  text-align:center;
-  color:white;
-  background:linear-gradient(135deg,#020617,#1e3a8a,#2563eb);
-}
+    .hero {
+      position: relative;
+      padding: 135px 8%;
+      text-align: center;
+      color: white;
+      background: linear-gradient(135deg, #020617, #1e3a8a, #2563eb);
+      background-size: 140% 140%;
+      overflow: hidden;
+    }
 
-.hero h1{
-  font-size:52px;
-}
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(3px);
+      animation: flutuar 7s infinite alternate ease-in-out;
+    }
 
-.hero p{
-  margin:20px auto;
-  max-width:700px;
-  color:#e5e7eb;
-}
+    .hero::before {
+      width: 430px;
+      height: 430px;
+      background: rgba(255,255,255,0.12);
+      top: -130px;
+      left: -130px;
+    }
 
-/* BOTÃO */
-.botao{
-  display:inline-block;
-  margin-top:20px;
-  background:#fff;
-  color:#1d4ed8;
-  padding:15px 28px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:bold;
-  transition:.3s;
-}
+    .hero::after {
+      width: 360px;
+      height: 360px;
+      background: rgba(59,130,246,0.38);
+      bottom: -140px;
+      right: -110px;
+    }
 
-.botao:hover{
-  transform:translateY(-5px);
-}
+    .hero-conteudo {
+      position: relative;
+      z-index: 2;
+      animation: aparecer 1s ease forwards;
+    }
 
-/* SEÇÕES */
-section{
-  padding:80px 8%;
-}
+    .tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 9px 18px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-bottom: 24px;
+      animation: subirDescer 2.5s infinite alternate ease-in-out;
+    }
 
-.titulo{
-  text-align:center;
-  font-size:32px;
-  margin-bottom:20px;
-}
+    .hero h1 {
+      font-size: 58px;
+      max-width: 1050px;
+      margin: 0 auto 25px;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      background: linear-gradient(90deg, #ffffff, #60a5fa, #ffffff);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: brilhoTexto 4s linear infinite;
+    }
 
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
+    .hero p {
+      font-size: 20px;
+      max-width: 820px;
+      margin: 0 auto 38px;
+      color: #e5e7eb;
+      line-height: 1.7;
+    }
 
-.card{
-  background:white;
-  padding:25px;
-  border-radius:18px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
+    .botoes {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-/* FOOTER */
-footer{
-  background:#020617;
-  color:white;
-  padding:30px;
-  text-align:center;
-}
+    .botao {
+      display: inline-block;
+      background: #ffffff;
+      color: #1d4ed8;
+      padding: 16px 30px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 0.4px;
+      transition: 0.3s;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+      position: relative;
+      overflow: hidden;
+    }
 
-/* BOTÕES FIXOS */
-.whatsapp-fixo{
-  position:fixed;
-  right:22px;
-  bottom:22px;
-  width:58px;
-  height:58px;
-  background:#25d366;
-  border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  box-shadow:0 10px 30px rgba(0,0,0,0.25);
-  animation:pulsar 1.8s infinite;
-  z-index:999;
-}
+    .botao:hover {
+      transform: translateY(-5px) scale(1.03);
+    }
 
-.instagram-fixo{
-  position:fixed;
-  right:22px;
-  bottom:95px;
-  width:58px;
-  height:58px;
-  background:#e1306c;
-  border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  box-shadow:0 10px 30px rgba(0,0,0,0.25);
-  animation:pulsarInsta 1.8s infinite;
-  z-index:999;
-}
+    .botao::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      background: rgba(37,99,235,0.25);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: 0.6s;
+    }
 
-.instagram-fixo img,
-.whatsapp-fixo img{
-  width:30px;
-}
+    .botao:hover::after {
+      width: 320px;
+      height: 320px;
+    }
 
-/* ANIMAÇÕES */
-@keyframes pulsar{
-  0%{box-shadow:0 0 0 0 rgba(37,211,102,0.6);}
-  70%{box-shadow:0 0 0 18px rgba(37,211,102,0);}
-  100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
-}
+    .botao-secundario {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
 
-@keyframes pulsarInsta{
-  0%{box-shadow:0 0 0 0 rgba(225,48,108,0.6);}
-  70%{box-shadow:0 0 0 18px rgba(225,48,108,0);}
-  100%{box-shadow:0 0 0 0 rgba(225,48,108,0);}
-}
-</style>
+    section {
+      padding: 85px 8%;
+    }
+
+    .titulo {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 15px;
+      color: #111827;
+      letter-spacing: -0.8px;
+    }
+
+    .subtitulo {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 45px;
+      font-size: 18px;
+      color: #6b7280;
+      line-height: 1.7;
+    }
+
+    .cinza {
+      background: #f8fafc;
+    }
+
+    .sobre-box {
+      max-width: 980px;
+      margin: auto;
+      background: #f8fafc;
+      padding: 45px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(15,23,42,0.08);
+      border: 1px solid #e5e7eb;
+    }
+
+    .sobre-box p {
+      font-size: 18px;
+      color: #4b5563;
+      line-height: 1.8;
+    }
+
+    .cards, .processo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 26px;
+    }
+
+    .card, .passo, .sobre-box {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.8s ease;
+    }
+
+    .card.ativo, .passo.ativo, .sobre-box.ativo {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card {
+      background: white;
+      padding: 32px;
+      border-radius: 22px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.07);
+      cursor: pointer;
+      transform-style: preserve-3d;
+    }
+
+    .card:hover {
+      box-shadow: 0 18px 45px rgba(37,99,235,0.18);
+      border-color: #bfdbfe;
+    }
+
+    .icone {
+      font-size: 38px;
+      margin-bottom: 16px;
+      transition: 0.3s;
+    }
+
+    .card:hover .icone {
+      transform: scale(1.2) rotate(8deg);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      letter-spacing: -0.4px;
+    }
+
+    .card p, .passo p {
+      color: #6b7280;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .resultado h3 {
+      color: #2563eb;
+      font-size: 32px;
+    }
+
+    .passo {
+      background: white;
+      padding: 32px;
+      border-radius: 22px;
+      border-left: 5px solid #2563eb;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.07);
+    }
+
+    .passo strong {
+      color: #2563eb;
+      font-size: 20px;
+    }
+
+    .passo h3 {
+      margin: 14px 0;
+      font-size: 22px;
+    }
+
+    .cta {
+      text-align: center;
+      background: linear-gradient(135deg, #020617, #1e3a8a);
+      color: white;
+    }
+
+    .cta h2 {
+      font-size: 42px;
+      margin-bottom: 18px;
+      letter-spacing: -0.8px;
+    }
+
+    .cta p {
+      color: #d1d5db;
+      max-width: 730px;
+      margin: 0 auto 32px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .instagram {
+      margin-top: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .instagram:hover {
+      color: #e1306c;
+      transform: scale(1.06);
+    }
+
+    .instagram img {
+      width: 24px;
+      height: 24px;
+    }
+
+    footer {
+      background: #020617;
+      color: white;
+      padding: 38px 8%;
+      text-align: center;
+    }
+
+    footer strong {
+      font-size: 24px;
+    }
+
+    footer p {
+      color: #9ca3af;
+      margin-top: 8px;
+    }
+
+    .whatsapp-fixo {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 58px;
+      height: 58px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      z-index: 999;
+      animation: pulsar 1.8s infinite;
+    }
+
+    .whatsapp-fixo img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .voltar-topo {
+      position: fixed;
+      left: 22px;
+      bottom: 22px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #2563eb;
+      color: white;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      transition: 0.3s;
+    }
+
+    .voltar-topo:hover {
+      transform: translateY(-5px);
+      background: #1d4ed8;
+    }
+
+    @keyframes entradaLogo {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes brilhoLogo {
+      from { text-shadow: 0 0 5px rgba(37,99,235,0.4); }
+      to { text-shadow: 0 0 18px rgba(37,99,235,0.9); }
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(35px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes flutuar {
+      from { transform: translateY(0); }
+      to { transform: translateY(35px); }
+    }
+
+    @keyframes subirDescer {
+      from { transform: translateY(0); }
+      to { transform: translateY(-8px); }
+    }
+
+    @keyframes brilhoTexto {
+      0% { background-position: 0%; }
+      100% { background-position: 200%; }
+    }
+
+    @keyframes pulsar {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+      70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    @media (max-width: 750px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 8px;
+        font-size: 14px;
+      }
+
+      .hero {
+        padding: 90px 6%;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .titulo {
+        font-size: 31px;
+      }
+
+      .cta h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">
-    <img src="logo.png" alt="Logo GNexus">
-    GN<span>exus</span>
-  </div>
+  <header>
+    <div class="logo">G<span>Nexus</span></div>
 
-  <nav>
-    <a href="#servicos">Serviços</a>
-  </nav>
-</header>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
 
-<section class="hero">
-  <h1>Marketing digital que gera resultado</h1>
-  <p>Ajudamos empresas a crescer com estratégias digitais profissionais.</p>
+  <section class="hero">
+    <div class="hero-conteudo">
+      <span class="tag">Marketing Digital • Estratégia • Crescimento</span>
 
-  <a class="botao" href="https://wa.me/557798209467" target="_blank">
-    Receber proposta
+      <h1>Ajudamos empresas a vender mais usando estratégias digitais profissionais</h1>
+
+      <p>
+        A GNexus conecta empresas ao público certo com presença online, landing pages,
+        marketing digital e parcerias estratégicas com influenciadores.
+      </p>
+
+      <div class="botoes">
+        <a class="botao" href="https://wa.me/557798209467?text=Olá,%20vim%20pelo%20site%20da%20GNexus%20e%20quero%20receber%20uma%20proposta" target="_blank">
+          Receber proposta gratuita
+        </a>
+
+        <a class="botao botao-secundario" href="#servicos">
+          Ver serviços
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <h2 class="titulo">Sobre a GNexus</h2>
+    <p class="subtitulo">Uma empresa criada para fortalecer marcas no digital.</p>
+
+    <div class="sobre-box animar">
+      <p>
+        A GNexus ajuda empresas a se posicionarem melhor na internet, transmitirem mais confiança
+        e criarem oportunidades reais de venda. Atuamos com estratégias digitais, landing pages,
+        presença online e conexão entre marcas, clientes e influenciadores.
+      </p>
+    </div>
+  </section>
+
+  <section id="servicos" class="cinza">
+    <h2 class="titulo">Nossos serviços</h2>
+    <p class="subtitulo">Soluções simples, modernas e profissionais para sua empresa crescer.</p>
+
+    <div class="cards">
+      <div class="card animar">
+        <div class="icone">🌐</div>
+        <h3>Landing Pages</h3>
+        <p>Páginas profissionais para apresentar sua empresa, gerar contatos e passar confiança.</p>
+      </div>
+
+      <div class="card animar">
+        <div class="icone">📈</div>
+        <h3>Marketing Digital</h3>
+        <p>Estratégias para aumentar a visibilidade da sua marca e atrair mais clientes.</p>
+      </div>
+
+      <div class="card animar">
+        <div class="icone">🤝</div>
+        <h3>Influenciadores</h3>
+        <p>Conectamos marcas com influenciadores que falam com o público certo.</p>
+      </div>
+
+      <div class="card animar">
+        <div class="icone">📱</div>
+        <h3>Presença Online</h3>
+        <p>Melhoramos a imagem da empresa no digital para gerar mais autoridade.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="resultados">
+    <h2 class="titulo">O que buscamos entregar</h2>
+    <p class="subtitulo">Mais clareza, mais confiança e mais oportunidades para sua empresa.</p>
+
+    <div class="cards">
+      <div class="card resultado animar">
+        <h3>+ Visibilidade</h3>
+        <p>Sua empresa aparecendo melhor para clientes certos.</p>
+      </div>
+
+      <div class="card resultado animar">
+        <h3>+ Autoridade</h3>
+        <p>Uma presença digital mais profissional e confiável.</p>
+      </div>
+
+      <div class="card resultado animar">
+        <h3>+ Contatos</h3>
+        <p>Mais pessoas chegando até sua empresa pelo digital.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cinza">
+    <h2 class="titulo">Por que escolher a GNexus?</h2>
+    <p class="subtitulo">Trabalhamos com estratégia, organização e foco em resultado.</p>
+
+    <div class="cards">
+      <div class="card animar">
+        <div class="icone">🎯</div>
+        <h3>Público certo</h3>
+        <p>Direcionamos sua comunicação para pessoas que realmente podem se interessar.</p>
+      </div>
+
+      <div class="card animar">
+        <div class="icone">⚡</div>
+        <h3>Execução objetiva</h3>
+        <p>Soluções diretas, bem feitas e fáceis de entender.</p>
+      </div>
+
+      <div class="card animar">
+        <div class="icone">💼</div>
+        <h3>Imagem profissional</h3>
+        <p>Sua empresa com aparência mais séria, moderna e confiável.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="titulo">Como trabalhamos</h2>
+    <p class="subtitulo">Um processo claro para entender sua empresa e montar a melhor estratégia.</p>
+
+    <div class="processo">
+      <div class="passo animar">
+        <strong>01</strong>
+        <h3>Diagnóstico</h3>
+        <p>Entendemos sua empresa, seu público e seus objetivos.</p>
+      </div>
+
+      <div class="passo animar">
+        <strong>02</strong>
+        <h3>Estratégia</h3>
+        <p>Criamos um plano digital de acordo com sua necessidade.</p>
+      </div>
+
+      <div class="passo animar">
+        <strong>03</strong>
+        <h3>Execução</h3>
+        <p>Aplicamos as soluções com visual profissional e comunicação clara.</p>
+      </div>
+
+      <div class="passo animar">
+        <strong>04</strong>
+        <h3>Crescimento</h3>
+        <p>Acompanhamos o posicionamento para gerar mais oportunidades.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="cta">
+    <h2>Quer profissionalizar sua presença digital?</h2>
+
+    <p>
+      Fale com a GNexus e descubra como podemos ajudar sua empresa a aparecer melhor,
+      atrair mais clientes e crescer no digital.
+    </p>
+
+    <a class="botao" href="https://wa.me/557798209467?text=Olá,%20vim%20pelo%20site%20da%20GNexus%20e%20quero%20receber%20uma%20proposta" target="_blank">
+      Chamar no WhatsApp
+    </a>
+
+    <br>
+
+    <a class="instagram" href="https://www.instagram.com/g.nexus7?igsh=MTVxNzVwNnJ1Nm5hNQ==" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+      Instagram da GNexus
+    </a>
+  </section>
+
+  <footer>
+    <strong>GNexus</strong>
+    <p>Marketing digital, estratégia e conexão entre marcas e pessoas.</p>
+    <p>© 2026 GNexus - Todos os direitos reservados</p>
+  </footer>
+
+  <a class="whatsapp-fixo" href="https://wa.me/557798209467?text=Olá,%20vim%20pelo%20site%20da%20GNexus%20e%20quero%20receber%20uma%20proposta" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
   </a>
-</section>
 
-<section id="servicos">
-  <h2 class="titulo">Serviços</h2>
+  <button class="voltar-topo" id="voltarTopo">↑</button>
 
-  <div class="cards">
-    <div class="card">Landing Pages</div>
-    <div class="card">Marketing Digital</div>
-    <div class="card">Influenciadores</div>
-    <div class="card">Presença Online</div>
-  </div>
-</section>
+  <script>
+    const elementos = document.querySelectorAll('.animar');
 
-<footer>
-  <strong>GNexus</strong>
-  <p>Marketing digital e conexão entre marcas.</p>
-</footer>
+    function animarAoRolar() {
+      elementos.forEach((elemento) => {
+        const posicao = elemento.getBoundingClientRect().top;
+        const alturaTela = window.innerHeight - 80;
 
-<!-- INSTAGRAM -->
-<a class="instagram-fixo" href="https://www.instagram.com/g.nexus7" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-</a>
+        if (posicao < alturaTela) {
+          elemento.classList.add('ativo');
+        }
+      });
+    }
 
-<!-- WHATSAPP -->
-<a class="whatsapp-fixo" href="https://wa.me/557798209467" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-</a>
+    window.addEventListener('scroll', animarAoRolar);
+    window.addEventListener('load', animarAoRolar);
+
+    const botaoTopo = document.getElementById('voltarTopo');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        botaoTopo.style.display = 'block';
+      } else {
+        botaoTopo.style.display = 'none';
+      }
+    });
+
+    botaoTopo.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      const x = (window.innerWidth - e.pageX * 2) / 100;
+      const y = (window.innerHeight - e.pageY * 2) / 100;
+
+      document.querySelector('.hero').style.backgroundPosition = `${x}px ${y}px`;
+    });
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateX = (y / rect.height - 0.5) * 10;
+        const rotateY = (x / rect.width - 0.5) * -10;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+        card.style.borderColor = '#2563eb';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+        card.style.borderColor = '#e5e7eb';
+      });
+    });
+  </script>
 
 </body>
 </html>
+
