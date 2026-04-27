@@ -1,486 +1,294 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GNexus | Marketing Digital</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GNexus</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #ffffff;
-      color: #111;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #111;
+}
 
-    header {
-      width: 100%;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(255,255,255,0.95);
-      border-bottom: 1px solid #eee;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  background: white;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-    .logo {
-      font-size: 34px;
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
+.logo {
+  font-size: 34px;
+  font-weight: 800;
+}
 
-    .logo span {
-      color: #25d366;
-    }
+.logo span {
+  color: #0056b3;
+}
 
-    nav a {
-      margin-left: 25px;
-      text-decoration: none;
-      color: #222;
-      font-weight: bold;
-      font-size: 15px;
-      transition: 0.3s;
-    }
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #222;
+  font-weight: bold;
+  transition: 0.3s;
+}
 
-    nav a:hover {
-      color: #25d366;
-    }
+nav a:hover {
+  color: #007bff;
+}
 
-    .hero {
-      padding: 110px 8%;
-      text-align: center;
-      background: linear-gradient(135deg, #f5f5f5, #ffffff);
-    }
+/* HERO */
+.hero {
+  padding: 120px 8%;
+  text-align: center;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+}
 
-    .tag {
-      display: inline-block;
-      background: #e9fff1;
-      color: #16883d;
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
+.tag {
+  background: rgba(255,255,255,0.2);
+  padding: 8px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
 
-    .hero h1 {
-      font-size: 52px;
-      max-width: 950px;
-      margin: 0 auto 25px;
-      line-height: 1.1;
-    }
+.hero h1 {
+  font-size: 52px;
+  margin-bottom: 20px;
+}
 
-    .hero p {
-      font-size: 20px;
-      max-width: 780px;
-      margin: 0 auto 35px;
-      color: #555;
-      line-height: 1.7;
-    }
+.hero p {
+  max-width: 750px;
+  margin: auto;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
 
-    .botoes {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
+/* BOTÕES */
+.botao {
+  background: white;
+  color: #0056b3;
+  padding: 15px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
 
-    .botao {
-      display: inline-block;
-      background: #25d366;
-      color: white;
-      padding: 16px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+.botao:hover {
+  transform: scale(1.05);
+}
 
-    .botao:hover {
-      background: #1ebe5d;
-      transform: translateY(-3px);
-    }
+/* SECTIONS */
+section {
+  padding: 80px 8%;
+}
 
-    .botao-secundario {
-      background: #111;
-    }
+.titulo {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 15px;
+}
 
-    .botao-secundario:hover {
-      background: #333;
-    }
+.subtitulo {
+  text-align: center;
+  max-width: 700px;
+  margin: auto;
+  color: #555;
+  margin-bottom: 40px;
+}
 
-    section {
-      padding: 80px 8%;
-    }
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
 
-    .titulo {
-      text-align: center;
-      font-size: 38px;
-      margin-bottom: 15px;
-    }
+.card {
+  padding: 30px;
+  border-radius: 15px;
+  background: white;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(40px);
+}
 
-    .subtitulo {
-      text-align: center;
-      max-width: 750px;
-      margin: 0 auto 45px;
-      font-size: 18px;
-      color: #555;
-      line-height: 1.7;
-    }
+.card.ativo {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .sobre {
-      background: white;
-    }
+.card:hover {
+  transform: translateY(-8px);
+}
 
-    .sobre-box {
-      max-width: 950px;
-      margin: auto;
-      background: #f7f7f7;
-      padding: 40px;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-    }
+.card h3 {
+  margin-bottom: 10px;
+}
 
-    .sobre-box p {
-      font-size: 18px;
-      color: #555;
-      line-height: 1.8;
-    }
+/* PROCESSO */
+.processo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 25px;
-    }
+.passo {
+  padding: 25px;
+  border-left: 5px solid #007bff;
+  background: #f7f7f7;
+  border-radius: 10px;
+}
 
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 18px;
-      border: 1px solid #eee;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-      transition: 0.3s;
-    }
+/* CTA */
+.cta {
+  background: #111;
+  color: white;
+  text-align: center;
+}
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
-    }
+.cta p {
+  color: #ccc;
+  margin-bottom: 25px;
+}
 
-    .icone {
-      font-size: 34px;
-      margin-bottom: 15px;
-    }
+/* INSTAGRAM */
+.instagram {
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
+}
 
-    .card h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
+.instagram img {
+  width: 24px;
+}
 
-    .card p {
-      color: #555;
-      line-height: 1.6;
-      font-size: 16px;
-    }
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: black;
+  color: white;
+}
 
-    .cinza {
-      background: #f7f7f7;
-    }
+/* RESPONSIVO */
+@media(max-width:700px){
+  .hero h1{
+    font-size: 32px;
+  }
+}
 
-    .processo {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-    }
-
-    .passo {
-      background: white;
-      padding: 30px;
-      border-radius: 18px;
-      border-left: 5px solid #25d366;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-    }
-
-    .passo strong {
-      color: #25d366;
-      font-size: 18px;
-    }
-
-    .passo h3 {
-      margin: 12px 0;
-      font-size: 22px;
-    }
-
-    .passo p {
-      color: #555;
-      line-height: 1.6;
-    }
-
-    .cta {
-      text-align: center;
-      background: #111;
-      color: white;
-    }
-
-    .cta h2 {
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
-
-    .cta p {
-      color: #ddd;
-      max-width: 720px;
-      margin: 0 auto 30px;
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    .redes {
-      margin-top: 30px;
-    }
-
-    .instagram {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .instagram:hover {
-      color: #e1306c;
-      transform: scale(1.05);
-    }
-
-    .instagram img {
-      width: 26px;
-      height: 26px;
-    }
-
-    footer {
-      background: #000;
-      color: white;
-      padding: 35px 8%;
-      text-align: center;
-    }
-
-    footer p {
-      color: #ccc;
-      margin-top: 8px;
-    }
-
-    @media (max-width: 750px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      nav a {
-        margin: 8px;
-      }
-
-      .hero {
-        padding: 80px 6%;
-      }
-
-      .hero h1 {
-        font-size: 36px;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-
-      .titulo {
-        font-size: 30px;
-      }
-
-      .cta h2 {
-        font-size: 30px;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">G<span>Nexus</span></div>
+<header>
+  <div class="logo">G<span>Nexus</span></div>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
 
-    <nav>
-      <a href="#sobre">Sobre</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#diferenciais">Diferenciais</a>
-      <a href="#contato">Contato</a>
-    </nav>
-  </header>
+<section class="hero">
+  <span class="tag">Marketing Digital • Estratégia</span>
 
-  <section class="hero">
-    <span class="tag">Marketing Digital • Estratégia • Conexão</span>
+  <h1>Conectamos empresas ao público certo</h1>
 
-    <h1>Conectamos empresas ao público certo para gerar mais visibilidade e vendas</h1>
+  <p>
+    Cresça no digital com estratégias modernas e presença profissional.
+  </p>
 
-    <p>
-      A GNexus ajuda empresas a crescerem no digital por meio de estratégias inteligentes,
-      presença online profissional e conexões com influenciadores que realmente falam com o público ideal.
-    </p>
+  <a class="botao" href="https://wa.me/557798209467?text=Olá,%20vim%20pelo%20site%20da%20GNexus" target="_blank">
+    Falar no WhatsApp
+  </a>
+</section>
 
-    <div class="botoes">
-      <a class="botao" href="https://wa.me/557798209467?text=Olá,%20vim%20pelo%20site%20da%20GNexus" target="_blank">
-        Falar no WhatsApp
-      </a>
+<section id="servicos">
+  <h2 class="titulo">Serviços</h2>
+  <p class="subtitulo">Tudo que sua empresa precisa para crescer online</p>
 
-      <a class="botao botao-secundario" href="#servicos">
-        Ver serviços
-      </a>
+  <div class="cards">
+    <div class="card">
+      <h3>Landing Pages</h3>
+      <p>Páginas profissionais que geram clientes.</p>
     </div>
-  </section>
 
-  <section id="sobre" class="sobre">
-    <h2 class="titulo">Sobre a GNexus</h2>
-    <p class="subtitulo">
-      Uma empresa digital criada para aproximar marcas, clientes e oportunidades.
-    </p>
-
-    <div class="sobre-box">
-      <p>
-        A GNexus nasceu com o objetivo de ajudar empresas a se posicionarem melhor no ambiente digital.
-        Nosso foco é criar pontes entre negócios e o público certo, usando comunicação clara,
-        estratégias modernas e parcerias inteligentes com criadores de conteúdo e influenciadores.
-        Trabalhamos para transformar presença online em autoridade, confiança e novas oportunidades de venda.
-      </p>
+    <div class="card">
+      <h3>Marketing</h3>
+      <p>Mais visibilidade e mais vendas.</p>
     </div>
-  </section>
 
-  <section id="servicos" class="cinza">
-    <h2 class="titulo">Nossos serviços</h2>
-    <p class="subtitulo">
-      Soluções simples, profissionais e estratégicas para empresas que querem crescer no digital.
-    </p>
-
-    <div class="cards">
-      <div class="card">
-        <div class="icone">🌐</div>
-        <h3>Landing Pages</h3>
-        <p>Criamos páginas profissionais para apresentar sua empresa, gerar contatos e transmitir confiança.</p>
-      </div>
-
-      <div class="card">
-        <div class="icone">📈</div>
-        <h3>Marketing Digital</h3>
-        <p>Desenvolvemos estratégias para melhorar a presença da marca e atrair mais clientes.</p>
-      </div>
-
-      <div class="card">
-        <div class="icone">🤝</div>
-        <h3>Influenciadores</h3>
-        <p>Conectamos empresas com influenciadores que possuem público alinhado ao negócio.</p>
-      </div>
-
-      <div class="card">
-        <div class="icone">📱</div>
-        <h3>Presença Online</h3>
-        <p>Ajudamos sua empresa a ter uma imagem mais profissional nas plataformas digitais.</p>
-      </div>
+    <div class="card">
+      <h3>Influenciadores</h3>
+      <p>Conexão com o público certo.</p>
     </div>
-  </section>
 
-  <section id="diferenciais">
-    <h2 class="titulo">Por que escolher a GNexus?</h2>
-    <p class="subtitulo">
-      Nosso trabalho é focado em clareza, estratégia e resultado.
-    </p>
-
-    <div class="cards">
-      <div class="card">
-        <div class="icone">🎯</div>
-        <h3>Público certo</h3>
-        <p>Buscamos conectar sua empresa com as pessoas que realmente têm interesse no seu serviço.</p>
-      </div>
-
-      <div class="card">
-        <div class="icone">⚡</div>
-        <h3>Soluções rápidas</h3>
-        <p>Criamos estratégias práticas para sua marca sair do básico e ganhar mais presença.</p>
-      </div>
-
-      <div class="card">
-        <div class="icone">💼</div>
-        <h3>Imagem profissional</h3>
-        <p>Organizamos a comunicação digital da empresa para passar mais confiança ao cliente.</p>
-      </div>
+    <div class="card">
+      <h3>Presença Digital</h3>
+      <p>Sua empresa com imagem profissional.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="cinza">
-    <h2 class="titulo">Como trabalhamos</h2>
-    <p class="subtitulo">
-      Um processo simples para entender sua empresa e criar a melhor estratégia.
-    </p>
+<section class="cta" id="contato">
+  <h2>Vamos crescer sua empresa?</h2>
 
-    <div class="processo">
-      <div class="passo">
-        <strong>01</strong>
-        <h3>Entendimento</h3>
-        <p>Analisamos sua empresa, seu público e seus objetivos.</p>
-      </div>
+  <p>Entre em contato e comece hoje mesmo.</p>
 
-      <div class="passo">
-        <strong>02</strong>
-        <h3>Estratégia</h3>
-        <p>Montamos um plano digital de acordo com o que sua marca precisa.</p>
-      </div>
+  <a class="botao" href="https://wa.me/557798209467?text=Olá,%20vim%20pelo%20site%20da%20GNexus" target="_blank">
+    Chamar no WhatsApp
+  </a>
 
-      <div class="passo">
-        <strong>03</strong>
-        <h3>Execução</h3>
-        <p>Aplicamos as soluções digitais para melhorar sua presença online.</p>
-      </div>
+  <br><br>
 
-      <div class="passo">
-        <strong>04</strong>
-        <h3>Crescimento</h3>
-        <p>Ajudamos sua marca a ganhar mais visibilidade e oportunidades.</p>
-      </div>
-    </div>
-  </section>
+  <a class="instagram" href="https://www.instagram.com/g.nexus7?igsh=MTVxNzVwNnJ1Nm5hNQ==" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+    Instagram
+  </a>
+</section>
 
-  <section id="contato" class="cta">
-    <h2>Pronto para levar sua empresa para o digital?</h2>
+<footer>
+  <p>© 2026 GNexus</p>
+</footer>
 
-    <p>
-      Fale com a GNexus e descubra como podemos ajudar sua marca a crescer com estratégia,
-      criatividade e uma presença online mais profissional.
-    </p>
+<script>
+const cards = document.querySelectorAll('.card');
 
-    <a class="botao" href="https://wa.me/557798209467?text=Olá,%20vim%20pelo%20site%20da%20GNexus" target="_blank">
-      Chamar no WhatsApp
-    </a>
-
-    <div class="redes">
-      <a class="instagram" href="https://www.instagram.com/g.nexus7?igsh=MTVxNzVwNnJ1Nm5hNQ==" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-        Instagram da GNexus
-      </a>
-    </div>
-  </section>
-
-  <footer>
-    <strong>GNexus</strong>
-    <p>Marketing digital, estratégia e conexão entre marcas e pessoas.</p>
-    <p>© 2026 GNexus - Todos os direitos reservados</p>
-  </footer>
+window.addEventListener('scroll', () => {
+  cards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+    if(top < window.innerHeight - 50){
+      card.classList.add('ativo');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
