@@ -1,104 +1,314 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GNexus</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GNexus</title>
 
-<style>
-body{
-    font-family: Arial, sans-serif;
-    text-align:center;
-    margin:0;
-    padding:0;
-    background:#ffffff;
-    color:#111;
-}
-
-.container{
-    padding:50px 20px;
-}
-
-img{
-    width:180px;
-    margin-bottom:10px;
-}
-
-h1{
-    font-size:52px;
-    margin-top:20px;
-    max-width:700px;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-p{
-    font-size:22px;
-    max-width:700px;
-    margin:20px auto;
-    line-height:1.5;
-}
-
-.btn{
-
-    display:inline-block;
-     display:inline-block;
-    margin-top:20px;
-    padding:18px 35px;
-    background:#0d6efd;
-    color:#fff;
-    text-decoration:none;
-    border-radius:12px;
-    font-size:24px;
-    font-weight:bold;
-    box-shadow:0 4px 12px rgba(0,0,0,0.2);
-}
-
-footer{
-    margin-top:80px;
-    padding:30px;
-    background:#f1f1f1;
-    font-size:24px;
-}
-
-@media(max-width:768px){
-    h1{
-        font-size:32px;
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-    p{
-        font-size:18px;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: #222;
     }
 
-    .btn{
-        font-size:18px;
-        padding:15px 25px;
+    header {
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-}
-</style>
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      color: #111;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #25d366;
+    }
+
+    .hero {
+      padding: 90px 8%;
+      text-align: center;
+      background: linear-gradient(135deg, #f7f7f7, #ffffff);
+      animation: aparecer 1s ease;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .botao {
+      display: inline-block;
+      background: #25d366;
+      color: white;
+      padding: 15px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 17px;
+      transition: 0.3s;
+    }
+
+    .botao:hover {
+      transform: scale(1.05);
+      background: #1ebe5d;
+    }
+
+    section {
+      padding: 65px 8%;
+    }
+
+    .titulo {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 20px;
+    }
+
+    .texto {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      font-size: 18px;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .card {
+      width: 260px;
+      padding: 28px;
+      border: 1px solid #ddd;
+      border-radius: 16px;
+      text-align: center;
+      background: white;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #111;
+    }
+
+    .card p {
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .contato {
+      text-align: center;
+      background: #111;
+      color: white;
+    }
+
+    .contato p {
+      color: #ddd;
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .redes {
+      margin-top: 25px;
+    }
+
+    .instagram {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+      transition: 0.3s;
+    }
+
+    .instagram:hover {
+      color: #e1306c;
+      transform: scale(1.05);
+    }
+
+    .instagram img {
+      width: 24px;
+      height: 24px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #000;
+      color: white;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 8px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .logo {
+        font-size: 34px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container">
-    <img src="logo.png" alt="GNexus">
+  <header>
+    <div class="logo">GNexus</div>
 
-    <h1>Conectamos sua marca ao crescimento</h1>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Conectamos empresas ao público certo através do marketing digital</h1>
 
     <p>
-        A GNexus conecta empresas, clientes e influenciadores
-        através de estratégias inteligentes de marketing digital.
+      A GNexus ajuda empresas a crescerem no digital conectando marcas,
+      clientes e influenciadores por meio de estratégias simples,
+      criativas e eficientes.
     </p>
 
-    <a class="btn" href="https://wa.me/557798209467">
-        Falar no WhatsApp
+    <a class="botao" href="https://wa.me/557798209467?text=Olá,%20vim%20pelo%20site%20da%20GNexus" target="_blank">
+      Falar com a GNexus
     </a>
-</div>
+  </section>
 
-<footer>
-  <a href="https://instagram.com/g.nexus7" target="_blank" class="insta-icon">
-   <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" style="width:50px;">
-  </a>
-</footer>
+  <section id="sobre">
+    <h2 class="titulo">Sobre a GNexus</h2>
+
+    <p class="texto">
+      A GNexus nasceu com o objetivo de aproximar empresas do público certo.
+      Nosso foco é ajudar marcas a se destacarem no ambiente digital,
+      usando estratégias modernas, comunicação clara e parcerias inteligentes
+      com criadores de conteúdo e influenciadores.
+    </p>
+  </section>
+
+  <section id="servicos">
+    <h2 class="titulo">Nossos serviços</h2>
+
+    <p class="texto">
+      Trabalhamos com soluções digitais para empresas que desejam fortalecer
+      sua presença online, atrair clientes e gerar novas oportunidades de venda.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Landing Pages</h3>
+        <p>Páginas profissionais para apresentar sua empresa e gerar contatos.</p>
+      </div>
+
+      <div class="card">
+        <h3>Marketing Digital</h3>
+        <p>Estratégias para sua marca aparecer mais e vender melhor.</p>
+      </div>
+
+      <div class="card">
+        <h3>Influenciadores</h3>
+        <p>Conectamos empresas com influenciadores que falam com o público certo.</p>
+      </div>
+
+      <div class="card">
+        <h3>Presença Online</h3>
+        <p>Ajudamos sua empresa a transmitir mais confiança no digital.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contato">
+    <h2 class="titulo">Quer levar sua empresa para o digital?</h2>
+
+    <p>
+      Entre em contato com a GNexus e descubra como podemos ajudar sua marca
+      a crescer com estratégia, criatividade e presença online.
+    </p>
+
+    <a class="botao" href="https://wa.me/557798209467?text=Olá,%20vim%20pelo%20site%20da%20GNexus" target="_blank">
+      Falar no WhatsApp
+    </a>
+
+    <div class="redes">
+      <a class="instagram" href="https://www.instagram.com/g.nexus7?igsh=MTVxNzVwNnJ1Nm5hNQ==" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        Instagram da GNexus
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 GNexus - Todos os direitos reservados</p>
+  </footer>
+
 </body>
-</html>
 </html>
