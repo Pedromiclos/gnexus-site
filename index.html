@@ -820,6 +820,169 @@ function respostaIA(pergunta) {
   return "Boa pergunta 👀 Me chama no WhatsApp que te explico melhor 👉 <a href='https://wa.me/557798209467' target='_blank'>clicar aqui</a>";
 }
 </script>
+  <!-- IA GNEXUS GRÁTIS COMPLETA -->
+<div id="ai-btn">🤖</div>
+
+<div id="ai-box">
+  <div id="ai-top">
+    <strong>IA GNexus</strong>
+    <span id="ai-close">×</span>
+  </div>
+
+  <div id="ai-chat">
+    <div class="bot">Olá 👋 sou a IA da GNexus. Como posso te ajudar?</div>
+  </div>
+
+  <div id="ai-input-area">
+    <input id="ai-text" placeholder="Digite sua pergunta..." />
+    <button onclick="sendAI()">Enviar</button>
+  </div>
+</div>
+
+<style>
+#ai-btn {
+  position: fixed;
+  right: 22px;
+  bottom: 90px;
+  width: 60px;
+  height: 60px;
+  background: #0066ff;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 99999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+#ai-box {
+  display: none;
+  position: fixed;
+  right: 22px;
+  bottom: 160px;
+  width: 330px;
+  background: white;
+  color: #111;
+  border-radius: 18px;
+  overflow: hidden;
+  z-index: 99999;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+#ai-top {
+  background: #06152f;
+  color: white;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#ai-close {
+  cursor: pointer;
+  font-size: 22px;
+}
+
+#ai-chat {
+  height: 260px;
+  padding: 12px;
+  overflow-y: auto;
+  background: #f8fafc;
+}
+
+.bot, .user {
+  padding: 10px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.bot {
+  background: #eaf2ff;
+}
+
+.user {
+  background: #0066ff;
+  color: white;
+  text-align: right;
+}
+
+#ai-input-area {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+#ai-text {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  outline: none;
+}
+
+#ai-input-area button {
+  border: none;
+  background: #0066ff;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+}
+</style>
+
+<script>
+const aiBtn = document.getElementById("ai-btn");
+const aiBox = document.getElementById("ai-box");
+const aiClose = document.getElementById("ai-close");
+const aiChat = document.getElementById("ai-chat");
+
+aiBtn.onclick = function() {
+  aiBox.style.display = "block";
+};
+
+aiClose.onclick = function() {
+  aiBox.style.display = "none";
+};
+
+function addMsg(text, type) {
+  const div = document.createElement("div");
+  div.className = type;
+  div.innerHTML = text;
+  aiChat.appendChild(div);
+  aiChat.scrollTop = aiChat.scrollHeight;
+}
+
+function sendAI() {
+  const input = document.getElementById("ai-text");
+  const pergunta = input.value.trim();
+
+  if (!pergunta) return;
+
+  addMsg(pergunta, "user");
+
+  const p = pergunta.toLowerCase();
+  let resposta = "A GNexus ajuda empresas a crescerem no digital com sites, marketing e estratégias online.";
+
+  if (p.includes("preço") || p.includes("valor") || p.includes("quanto")) {
+    resposta = "Os valores dependem do serviço. Para receber uma proposta, chame no WhatsApp: <a href='https://wa.me/557798209467' target='_blank'>clicar aqui</a>";
+  } else if (p.includes("site") || p.includes("landing")) {
+    resposta = "Criamos sites e landing pages profissionais para sua empresa passar confiança e gerar clientes.";
+  } else if (p.includes("instagram")) {
+    resposta = "A GNexus ajuda sua empresa a melhorar a presença no Instagram e atrair mais clientes.";
+  } else if (p.includes("marketing")) {
+    resposta = "Trabalhamos com marketing digital para aumentar visibilidade, autoridade e vendas.";
+  } else if (p.includes("contato") || p.includes("whatsapp")) {
+    resposta = "Você pode falar conosco agora pelo WhatsApp: <a href='https://wa.me/557798209467' target='_blank'>abrir conversa</a>";
+  }
+
+  setTimeout(() => {
+    addMsg(resposta, "bot");
+  }, 400);
+
+  input.value = "";
+}
+  
+</script>
   
 </body>
 </html>
