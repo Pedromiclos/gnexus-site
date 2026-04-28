@@ -789,6 +789,38 @@
     });
   </script>
 
+  <script>
+function respostaIA(pergunta) {
+  pergunta = pergunta.toLowerCase();
+
+  if (pergunta.includes("preço") || pergunta.includes("valor")) {
+    return "Os valores variam de acordo com o projeto. Quer que eu te mande uma proposta? 👉 <a href='https://wa.me/557798209467' target='_blank'>WhatsApp</a>";
+  }
+
+  if (pergunta.includes("site") || pergunta.includes("landing")) {
+    return "Criamos sites profissionais para sua empresa vender mais e passar autoridade 🚀";
+  }
+
+  if (pergunta.includes("instagram")) {
+    return "Ajudamos você a crescer no Instagram com estratégias que realmente convertem 📈";
+  }
+
+  if (pergunta.includes("cliente") || pergunta.includes("vendas")) {
+    return "Nosso foco é gerar clientes reais para sua empresa usando marketing digital 🔥";
+  }
+
+  if (pergunta.includes("contato") || pergunta.includes("whatsapp")) {
+    return "Clique aqui 👉 <a href='https://wa.me/557798209467' target='_blank'>falar agora</a>";
+  }
+
+  if (pergunta.includes("empresa") || pergunta.includes("gnexus")) {
+    return "A GNexus é uma empresa de marketing digital focada em crescimento e vendas online 💼";
+  }
+
+  return "Boa pergunta 👀 Me chama no WhatsApp que te explico melhor 👉 <a href='https://wa.me/557798209467' target='_blank'>clicar aqui</a>";
+}
+</script>
+  
 </body>
 </html>
 
